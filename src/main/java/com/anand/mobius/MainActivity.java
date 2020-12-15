@@ -7,12 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.anand.mobius.utils.AppPreferences;
 import com.anand.mobius.utils.ConnectionChecking;
 import com.anand.mobius.utils.HttpHelpers;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
@@ -27,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     ApiInterface apiInterface;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         checking = new ConnectionChecking();
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this,RecyclerView.VERTICAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
@@ -54,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             apiInterface = retrofit.create(ApiInterface.class);
 
 
-
             Call<JsonArray> grades = apiInterface.getcupons();
             grades.enqueue(new Callback<JsonArray>() {
                 @Override
@@ -68,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 //                            Log.d("TAG_APP", response.body().getAsJsonArray().toString());
 
 
-                            recyclerView.setAdapter(new myCupponAdp( response.body().getAsJsonArray(),MainActivity.this));
+                            recyclerView.setAdapter(new myCupponAdp(response.body().getAsJsonArray(), MainActivity.this));
 
                             dialog.dismiss();
 

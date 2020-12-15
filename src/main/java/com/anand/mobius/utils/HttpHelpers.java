@@ -7,8 +7,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HttpHelpers {
-    public final static String BASE_IMG_URL = "https://run.mocky.io/v3/";
-//    private static String BASE_URL = "https://run.mocky.io/v3/";
     private static String BASE_URL = "https://run.mocky.io/v3/";
     private static Retrofit retrofit;
     private static Gson gson;

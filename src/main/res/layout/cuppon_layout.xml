@@ -3,32 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FF0130"
     android:orientation="vertical">
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#CD8DA3">
 
         <ImageView
             android:id="@+id/cuppon_back_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"
-            tools:srcCompat="@tools:sample/avatars"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="70dp"
+            android:visibility="gone"
+            tools:srcCompat="@tools:sample/avatars" />
 
 
         <LinearLayout
+            android:id="@+id/cuppon_card"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true">
 
             <androidx.cardview.widget.CardView
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/purple_200"
+                app:cardBackgroundColor="#F26797"
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
@@ -40,7 +46,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginTop="45dp"
+                        android:layout_marginTop="50dp"
                         android:background="@color/black" />
 
                     <LinearLayout
@@ -107,6 +113,7 @@
                                     android:textStyle="normal" />
 
                                 <TextView
+                                    android:id="@+id/date_tv"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="1,JAN,2020"
@@ -117,15 +124,16 @@
                             </LinearLayout>
 
                             <TextView
+                                android:id="@+id/details_tv"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:layout_margin="2dp"
                                 android:gravity="bottom"
                                 android:text="Show Details "
-                                android:textColor="@color/main_orange_color"
+                                android:textColor="#ffcc00"
                                 android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:layout_margin="2dp"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <View
@@ -149,6 +157,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/slab_min_dep_tv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -161,25 +170,78 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:layout_margin="2dp"
                                 android:gravity="center"
                                 android:text="Applied "
                                 android:textColor="@color/main_green_color"
                                 android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:layout_margin="2dp"/>
+                                android:textStyle="bold" />
 
                         </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/details_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
-                        <View
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/black" />
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/black" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="1dp"
+                                android:layout_marginRight="1dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="Purchase Amount "
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="Bonus Amount "
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text=" Instant Cash"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal" />
+                            </LinearLayout>
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/black" />
+                        </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -188,152 +250,107 @@
                             android:layout_marginRight="1dp"
                             android:orientation="horizontal">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="Purchase Amount "
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:textStyle="normal" />
+                                android:orientation="vertical">
 
-                            <TextView
+                                <TextView
+                                    android:id="@+id/slab_min_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="1500  "
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/slab_mid_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="1500 &amp; 5000 "
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/slab_max_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text=">=5000"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center"
-                                android:text="Bonus Amount "
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:textStyle="normal" />
+                                android:orientation="vertical">
 
-                            <TextView
+                                <TextView
+                                    android:id="@+id/slab_min_waged_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="30% (Max 360) "
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/slab_mid_waged_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="50% (Max 2000)"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/slab_max_waged_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="85% (Max 17000)"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:gravity="center"
-                                android:text=" Instant Cash"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
+                                android:orientation="vertical">
 
+                                <TextView
+                                    android:id="@+id/slab_min_cash_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="5% (Max 360) "
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/black" />
-                    </LinearLayout>
+                                <TextView
+                                    android:id="@+id/slab_mid_cash_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="10% (Max 2000)"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
 
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginRight="1dp"
-                        android:layout_marginLeft="1dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/slab_min_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="1500  "
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/slab_mid_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="1500 &amp; 5000 "
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/slab_max_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text=">=5000"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/slab_min_waged_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="30% (Max 360) "
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/slab_mid_waged_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="50% (Max 2000)"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/slab_max_waged_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="85% (Max 17000)"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/slab_min_cash_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="5% (Max 360) "
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/slab_mid_cash_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="10% (Max 2000)"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/slab_max_cash_tv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="15% (Max 17000)"
-                                android:textColor="@color/black"
-                                android:textSize="12sp"
-                                android:textStyle="bold" />
+                                <TextView
+                                    android:id="@+id/slab_max_cash_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="15% (Max 17000)"
+                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -377,6 +394,43 @@
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:id="@+id/details_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cuppon_card"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/wager_to_release_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="For every "
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/wager_bonus_expiry_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="100"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
 
 
     </RelativeLayout>
